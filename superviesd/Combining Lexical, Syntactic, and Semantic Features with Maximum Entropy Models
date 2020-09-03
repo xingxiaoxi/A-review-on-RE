@@ -1,0 +1,15 @@
+词法，句法和语义特征
+
+两个实体间全部单词
+两个实体的类型
+实体级别：one of NAME,NOMINAL, Pronoun
+重叠：两个实体间单词数量，是否在一个动词短语里等等
+依存关系
+句法树
+地址：https://www.researchgate.net/profile/Nanda_Kambhatla/publication/228394091_Combining_lexical_syntactic_and_semantic_features_with_Maximum_Entropy_models_for_extracting_relations/links/5406b9060cf2bba34c1e51fd/Combining-lexical-syntactic-and-semantic-features-with-Maximum-Entropy-models-for-extracting-relations.pdf
+
+最大交叉熵
+
+之前的关系抽取系统已经利用到了句法树，作者的结果当然要部分归功于句法树，但其他的词级别特征也是很重要啊的
+
+这是2004年的论文，没有用到深度模型
