@@ -1,0 +1,16 @@
+ A Systematic Exploration of the Feature Space for Relation Extraction
+ 
+ add:https://www.aclweb.org/anthology/N07-1015.pdf
+ 
+ 2007
+ 
+ 只使用基本特征就可以获得很好的效果，过度的包含复杂特征反而会伤害表现
+ 混合不同复杂度和不同句子表示的特征效果最好
+ 
+ 1)hundreds of Palestinians converged on the square为例，知道Palestinians是人很有用，它之后的单词converge也很有用
+    token的属性，token之间的关系
+ 2)G = (V, E, A, B)，V是节点，E是边，A,B是两个定义的函数
+    A(V)表示 ： v可能的所有属性，例如v是token，那么A(v) 包括token本身，形态，位置，语义
+    B(v)用来区分参数节点和非参数节点
+ 3)特征：实体属性，词袋，Bigrams，Grammar Productions，依存关系和依存路径
+ 
