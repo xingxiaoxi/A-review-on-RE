@@ -1,2 +1,20 @@
+Exploring Various Knowledge in Relation Extraction 
+
+
 add : https://www.aclweb.org/anthology/P05-1053.pdf
 
+Support Vector Machines
+
+语义方面：当全部句法信息没有帮助时，句法切分信息贡献最大，主要是由于ACE数据集中实体间隔较短
+
+选择svm是因为当时它的效果最好而且好实现
+
+feature : 1)word:两个实体，他们之间的词，第一个实体之前的词，第二个实体之后的词
+            细分为最接近的一两个单词
+          2)重叠，mention，实体类型与之前的论文相同
+          3)句法切分：分为很多部分，第一个短语；最后一个短语；或者only一个短语，M1之前的短语，M2之后的短语
+
+外部资源：例如Country Name List可以帮助ROLE.Citizen-Of子类型 两个feature如下
+          ET1Country: the entity type of M1 when M2 is a country name 
+          CountryET2: the entity type of M2 when M1 is a country name 
+          还有Personal Relative Trigger Word List，与国家列表类似
