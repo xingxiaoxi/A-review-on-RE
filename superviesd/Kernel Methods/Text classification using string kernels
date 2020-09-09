@@ -4,3 +4,20 @@ add : https://www.jmlr.org/papers/volume2/lodhi02a/lodhi02a.pdf
 http://papers.nips.cc/paper/2787-subsequence-kernels-for-relation-extraction.pdf
 
 
+首先回顾一下kernel的意思，kernel是一个函数，假设两个向量a,b 被映射到A，B,那么K(a,b) = A 点乘 B.
+
+把这样一个函数成为kernel，是一个比较抽象的概念，理解成一个函数就可以
+
+本篇文章设计的kernel:比较两个文档中共同子字符串的多少
+
+子字符串可以不连续，但是连续的程度决定了权重
+
+举个例子‘c-a-r’在card和custard中权重不一样
+
+每一个子串都有一个维度，值取决于频率和紧凑程度
+
+对于cat, car, bat, bar，k = 2时，有8个维度:c-a c-t a-t b-a b-t c-r a-r b-r
+
+对8个维度做点积就可以得到K的值
+
+看的头比较疼，完全就是机器学习，和现在的神经网络联系不大
