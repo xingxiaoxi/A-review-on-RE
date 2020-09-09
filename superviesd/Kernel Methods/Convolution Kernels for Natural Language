@@ -1,0 +1,14 @@
+Convolution Kernels for Natural Language
+
+add ： http://papers.nips.cc/paper/2089-convolution-kernels-for-natural-language.pdf
+
+把一句话(字符输入)转换成隐藏状态，比如句法序列，词性序列
+
+
+两个句法树T1，T2 ， 定义K 为K(T1, T2) = h(T1) * h(T2)
+
+定义T1，T2的节点N1，N2
+
+定义I : I_i(n) = 1 if 子树i以N节点为根，其余情况为0
+
+于是h_i(T1) = N1中所有点，为i子树根的总数。这样就得到了K(T1,T2)
