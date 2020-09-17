@@ -1,0 +1,62 @@
+Bootstrapping Approaches
+
+引导方法
+
+Extracting Patterns and Relations from the World Wide Web
+
+add:https://link.springer.com/chapter/10.1007/10704656_11
+
+把实体对和他们的关系组成三元组
+
+核心思想有两个，1）给定一组优质的模式，优质的三元组可以被识别
+                2）给定一组优质的三元组，一个优质的模式可以被识别到
+
+其中例子被称为种子，比如为了提取出首都关系，种子可以是<Beijing, China>，
+目的是抽取出相同的关系比如<Paris, France>
+
+算法为：输入 种子三元组S
+        输出 S经过多轮迭代成长
+        1：在网络上根据S发现例子
+        2：学习这些例子的模式
+        3：使用这些模式发现新的三元组添加到S中
+        4：返回第一步
+模式由五元组表示 (order, urlprefix, prefix, middle, suffix).
+
+order是一个bool值，其他是字符
+
+如果页面的url匹配了urlprefix，并且有<prefix> E1 <middle> E2 <suffix>
+
+eg：(true, “en.wikipedia.org/wiki/”, City of, is capital of, state) 
+City of Mumbai is capital of Maharashtra state
+
+两点改进Extracting Relations from Large Plain-Text Collections
+
+add:https://academiccommons.columbia.edu/doi/10.7916/D8NG4ZHK
+
+第一点：Pattern Representation and Generation:在pattern中加入了实体的标签
+
+模式的精确匹配阻碍了覆盖率，所以采取的办法是小变化如拼写错误，多余的内容不会引起不匹配
+
+代替了字符串，使用了词向量做点积来表示相似度
+
+第二点：Evaluation of Patterns and Tuples：计算一个置信度来评估模式
+
+置信度的计算方法：如果提取了一个元组(e1,e2) ，那么寻找之前出现过e1的元组(e1,e2'),如果e2,e2'相同，则视为正例，否则视为负例，
+
+p的置信度confidence(p) = num(正例) / (num(正例)+num(负例))
+
+用这种方式解决半监督问题属于数据增强，此外还有10多篇论文，方法都大同小异，以后做补充的时候再看
+
+
+
+
+
+
+
+
+
+
+
+
+
+
