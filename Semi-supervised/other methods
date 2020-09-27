@@ -7,3 +7,22 @@ Weakly-Supervised想要测试的领域没有充足数据，但是相似领域有
 采用多任务学习，原本是旨在对于每个独立任务实现更好的表现，不是为新任务的迁移而提出
 
 但是它可以用在这里，因为它在任务间对共性建模
+
+首先作者之前做过一些句法结构的研究，指出不同关系之间可能有相同的句法结构
+
+比如 EMP-ORG : employees of TCS; GPE-AFF : residents of India 他们之间通过of连接
+Syntactic Pattern arg-2 arg-1
+                  arg-1 of arg-2
+                  arg-1 [verb] arg-2
+不同关系类型之间有相关性所以权重并不是完全不相关的
+
+假设
+ω^T = µ^T + ν,
+ω^k = µ^k + ν for k = 1, . . . , K
+v是不同任务间的共同组成
+
+现在需要让loss(D_T,u+v)+loss(D_K,u+v)+正则项 最小
+
+loss = log P(y|x,w)
+
+如此来确定权重W
