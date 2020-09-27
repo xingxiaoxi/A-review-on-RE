@@ -1,0 +1,9 @@
+Multi-Task Transfer Learning for Weakly-Supervised Relation Extraction
+
+add : https://www.aclweb.org/anthology/P09-1114.pdf
+
+Weakly-Supervised想要测试的领域没有充足数据，但是相似领域有充足数据
+
+采用多任务学习，原本是旨在对于每个独立任务实现更好的表现，不是为新任务的迁移而提出
+
+但是它可以用在这里，因为它在任务间对共性建模
