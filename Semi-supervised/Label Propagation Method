@@ -1,0 +1,20 @@
+Learning from Labeled and Unlabeled Data with Label Propagation
+
+add:https://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.14.3864&rep=rep1&type=pdf
+
+一个用图网络标注数据的算法，
+
+但是不是图神经网络
+
+x(1,l)是有标签数据，x(l,l+u)是无标签数据
+
+权重与欧式距离相关，w_i,j = exp[ (d_i,j)^2 / α^2 ]两个点距离越近权重越大，就越容易通过边
+
+定义一个转换概率矩阵T，T_i,j = p(j->i) = w_i,j / 所有边权重之和 
+
+算法
+1：传播标签 Y <—— TY
+
+2：行归一化以维持概率解释（理解成总和为1）
+
+3：固定有标签的数据，重复第二步
