@@ -1,0 +1,31 @@
+Discovering Relations among Named Entities from Large Corpora
+
+add : https://www.aclweb.org/anthology/P04-1053.pdf
+
+完全的无监督学习和半监督学习不一样，半监督学习仍然需要少量的种子实例
+
+主要思想如下 : 1 在预料中标出命名实体
+               2 找出一同出现的实体和他们的上下文
+               3 计算文本的相似度
+               4 对每个聚类进行标注
+
+一对实体会出现很多次，把他们的上下文组成一个集合
+
+对于一同出现定义为在一个句子中，并且被隔开的单词小于N
+
+然而并没有把e1 ... e2 之外的词考虑到，这些词对于计算相似度也很重要
+
+e1 和 e2作为实体对出现的频率较少的话，考虑到置信度应该把他们消除
+
+用向量空间和余弦相似度来计算相似度，只计算实体类型相同的实体对
+
+比如两者都是per-org，于是他们被称作per-org domain
+
+向量是用tf*idf来计算，是一种根据词频乘积的比较古老的方法
+
+主要的限制是第一个实体左侧的词和第二个实体右侧的词没有被考虑
+
+Unsupervised Feature Selection for Relation Extraction
+
+https://www.aclweb.org/anthology/I05-2045.pdf
+
