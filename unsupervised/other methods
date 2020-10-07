@@ -1,0 +1,17 @@
+URES : an Unsupervised Web Relation Extraction System
+
+add : https://www.aclweb.org/anthology/P06-2086.pdf
+
+除聚类以外，一个对于无监督学习的主要方法是URES (Unsupervised RE System)
+
+这个系统以待提取的关系名字，和它们的参数作为输入，而不需要实例
+
+举个例子Acquisition关系包括两个关键字“acquired” and “acquisition”以及他们的其他形态
+
+那么可以通过关键字来获得数据
+
+如果要学习模式，那么仍然需要少量的种子实例，但是这些实例可以由-高精度，低召回率的-非监督系统来生成，所以仍然是无监督学习
+
+Boosting unsupervised relation extraction by using ner在此基础上引入了NER实体抽取
+
+Investigating a generic paraphrase-based approach for relation extraction.是一篇生成类的算法以后如果深入研究的话可以看一下
