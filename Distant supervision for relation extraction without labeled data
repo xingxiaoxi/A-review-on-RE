@@ -1,0 +1,29 @@
+distant supervision第一篇论文和相关
+
+add : https://www.aclweb.org/anthology/P09-1113.pdf
+      https://www.aclweb.org/anthology/D10-1099.pdf
+      
+      
+      
+      
+
+先从大的结构化的知识库中得到实体与他们的关系表，之后再从无监督大文本语料库中匹配出现的实体。
+
+这样的数据可能会有噪声，但是巨大的总量可能会弥补这个不足，此方法结合了监督和无监督方法
+
+Mintz使用freebase作为基础的知识库，包括116million例子 ， 7300 relation ， 9million实体
+
+只选取top100relation的例子，1.8million ， 102 relation ， 940000实体
+
+然后应用到wikipedia作为无监督语料库，
+
+但是freebase是从Wikipedia中得到的，所以这样做会产生一个in-domain问题，所以可以用其他的无监督语料库作为out-domain
+
+这样做会产生大量噪音，比如...the troubles faced by Evo Morales in Bolivia...，并没有显示的指出国家-个人关系
+
+Collective Cross-Document Relation Extraction Without Labelled Data：
+
+两个实体间可能会有多种关系，但是ds方法只认定一种关系，所以会产生噪音数据
+
+此论文用crf方法和selection preferences template方法来解决
+
