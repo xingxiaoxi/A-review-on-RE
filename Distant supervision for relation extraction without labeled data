@@ -27,3 +27,37 @@ Collective Cross-Document Relation Extraction Without Labelled Data：
 
 此论文用crf方法和selection preferences template方法来解决
 
+***********************************************************
+
+Multi-instance Multi-label Learning for Relation Extraction
+
+add : https://www.aclweb.org/anthology/D12-1042.pdf
+
+DB =
+
+BornIn(Barack Obama, United States)
+EmployedBy(Barack Obama, United States)
+
+
+Sentence Latent Label
+Barack Obama is the 44th and current President of the United States.    EmployedBy
+Obama was born in the United States just as he has always said.   BornIn
+United States President Barack Obama meets with Chinese Vice President Xi Jinping today.  EmployedBy
+Obama ran for the United States Senate in 2004. –
+
+distant supervised 引入两个问题
+
+1：最后一个话没有体现出任何DB中的关系 31%
+2：一对实体对可能在DB中有两种以上的关系 7.5%
+
+提出MIML模型 multi-instane multi-label 
+
+MIML不只应用于自然语言处理，还在图像识别等很多其他领域被使用
+
+设置一个隐藏变量z用来K-label和NIL-label
+
+模型分为两部分，第一部分是多元分类器，将特定关系类型的所有实体对作为输入，生成一个Z向量，K维度
+
+第二部分是二元分类器，将Z作为输入，最后生成的一系列Y作为判断关系是否成立的最后决策
+
+如果第一层同时生成了两种关系，那么第二层就可以取消一种关系
