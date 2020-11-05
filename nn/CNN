@@ -1,0 +1,25 @@
+Relation Classification via Convolutional Deep Neural Network
+
+https://www.aclweb.org/anthology/C14-1220.pdf
+
+深度神经网络的意义：不进行任何复杂的NLP预处理，比如句法解析,词性标注，就可以提取提取词汇和句子级别的特征
+
+其实之前深度神经网络就已经被应用于nlp任务，如词性标注，命名实体识别
+
+在词性标注问题中，问题被当作一个序列标注问题，每次都都被标出一个tag，然而关系抽取是一个分类问题，所有导致了不同的目标函数
+
+并且由于关系抽取是针对于实体对，所以要在句子中指定实体对，PF是与目标实体对相对距离的位置特征
+
+这项工作是使用卷积DNN进行关系分类的第一个示例
+
+Word Representation, Feature Extraction and Output
+
+final feature是词水平的feature与句子水平的feature拼接
+
+句子水平的feature由cnn生成
+
+S : [People]0 have1 been2 moving3 back4 into5 [downtown]6
+
+PF ： “moving” in sentence S to “people” and “downtown” are 3 and -3
+
+DNN自动学习的特征有出色的效果，并有可能取代各种nlp预处理工具（例如语法分析器）的手动设计特征 
