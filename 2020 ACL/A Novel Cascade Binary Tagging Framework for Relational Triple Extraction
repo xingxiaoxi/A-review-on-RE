@@ -1,0 +1,25 @@
+A Novel Cascade Binary Tagging Framework for Relational Triple Extraction
+
+ADD ： https://www.aclweb.org/anthology/2020.acl-main.136.pdf
+
+本文主要解决RE中overlapping triple problem
+
+以前的模型都是将关系视为实体对的离散标签，这篇文章对关系建模作为将主题映射到对象的函数
+
+f(s, o) → r   ——>  fr(s) → o
+
+它由三部分组成，基于bert的编码器模型，标注主体的模型，类别相关的标注客体的模型
+
+在Bert编码之后，第二部分和第三部分采用了一种级联模型
+
+第二个模型采用两个相同的二元分类器来检测主体的开始和结束位置，通过为每个token分配一个二进制标签，指示当前token是对应于主体的开始还是结束位置。
+
+第三部分是一系列与第二部分具有相同结构的模型，每个都对应于一类关系，同样是标出客体的开始位置与结束位置
+
+第三部分的输入是bert的输出加上subject的表示
+
+一句话中可能会有多个主体，对每个主体都进行相同的处理过程
+
+向量是采取相加的方式而不是拼接的方式
+
+数据集NYT和WebNLG，两个数据集都有很多的重叠语句，分为三种类型Normal,EntityPairOverlap (EPO) and SingleEntityOverlap(SEO)
