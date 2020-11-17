@@ -1,0 +1,48 @@
+Probing Linguistic Features of Sentence-Level Representations in Neural Relation Extraction
+
+add : https://www.aclweb.org/anthology/2020.acl-main.140.pdf
+
+首先介绍Probing Tasks
+
+Probing Tasks是为了评估 RE模型所学习到的句子表示究竟是怎么样编码了一些直观的语言学特征. e.g.argument entity types, dependency path or argument
+distance features
+
+最初提出此任务的是2018年的论文
+What you can cram into a single $&!#* vector: Probing sentence embeddings for linguistic properties
+add : aclweb.org/anthology/P18-1198.pdf 
+
+主要方法是对于通过RE模型训练出的句子表示，将它用于RE的游任务，比如命名实体类型，如果该句子表示在命名实体类型任务上表现得很好，
+
+那么就说明学习到到句子表示，其中隐式的包含了命名实体的信息
+
+一些子任务:
+
+sentence length (SentLen) task ：预测句子中token的数量
+
+argument distance (ArgDist) ：预测两个实体之间token的数量
+
+可以把总数按长度分为7-10类，于是变成一个多分类任务
+
+(EntExist）两个参数之间是否任何命名实体，二分类任务
+
+这三种被当作表面的信息，与之相对的句法信息
+
+tree depth task (TreeDepth) ： 编码器是否能根据最长路径树的深度来进行分组
+
+shortest dependency path (SDP) : 实体之间的句法链接的信息
+
+The argument ordering task(ArgOrd) ：关系中的先后顺序与句子中出现的顺序是否一致，判断是否捕捉到句法结构信息
+
+四个词性任务PosHeadL, PosHeadR, PosTailL, PosTailR. 判断编码器对参数的及时上下文是否敏感
+
+举个例子 ：US president-NN Donald Trump 实体Trump之前的词的词性是NN
+
+The argument entity type tasks (TypeHead, TypeTail)
+
+实体类型信息与关系提取系统高度相关，因为它强烈限制了给定参数对的可能关系标签集。 被当作多元分类任务
+
+The grammatical role tasks(GRHead, GRTail)
+
+论文一共探究了四个结构CNN BiLSTM GCN Multi-Headed Self-Attention
+
+第二部分是探究外部的语言学特征作为额外输入会产生怎样的影响：Entity Masking，ELMo，BERT 
